@@ -1,5 +1,105 @@
 package logica;
 
+import java.util.Collection;
+
 public class AlquilerVehiculos {
+	private Collection<Sucursal> sucursales;
+	private Collection<Categoria> categorias;
+	private Collection<Reserva> reservas;
+	private Collection<Cliente> clientes;
+	
+	
+	public Sucursal consultar_Sucursal(String id){
+		for(Sucursal sucursal: sucursales)
+			if(sucursal.equals(id))
+				return sucursal;
+		return null;
+	}
+	
+	public boolean añadir_Sucursal(Sucursal sucursal){
+		return sucursales.add(sucursal);
+	}
+	
+	public boolean eliminar_Sucursal(String id){
+		return sucursales.remove(consultar_Sucursal(id));
+	}
+	
+	public Categoria consultar_Categoria(String id){
+		for(Categoria categoria: categorias)
+			if(categoria.equals(id))
+				return categoria;
+		return null;
+	}
+	
+	public boolean añadir_Categoria(Categoria categoria){
+		return categorias.add(categoria);
+	}
+	
+	public boolean eliminar_Categoria(String id){
+		return categorias.remove(consultar_Categoria(id));
+	}
+	
+	public Reserva consultar_Reserva(String id){
+		for(Reserva reserva: reservas)
+			if(reserva.equals(id))
+				return reserva;
+		return null;
+	}
+	
+	public boolean añadir_Reserva(Reserva reserva){
+		return reservas.add(reserva);
+	}
+	
+	public boolean eliminar_Reserva(String id){
+		return reservas.remove(consultar_Reserva(id));
+	}
+
+	public Cliente consultar_Cliente(String id){
+		for(Cliente cliente: clientes)
+			if(cliente.equals(id))
+				return cliente;
+		return null;
+	}
+	
+	public boolean añadir_Cliente(Cliente cliente){
+		return clientes.add(cliente);
+	}
+	
+	public boolean eliminar_Cliente(String id){
+		return clientes.remove(consultar_Cliente(id));
+	}
+
+	public Collection<Sucursal> getSucursales() {
+		return sucursales;
+	}
+
+	public void setSucursales(Collection<Sucursal> sucursales) {
+		this.sucursales = sucursales;
+	}
+
+	public Collection<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Collection<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
+	public Collection<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(Collection<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	public Collection<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Collection<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+	
 
 }
