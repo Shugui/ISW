@@ -1,9 +1,10 @@
 package logica;
 
 import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Cliente {
+	
 	
 	//id
 	private String id;
@@ -12,7 +13,7 @@ public class Cliente {
 	private String direccion;
 	private String poblacion;
 	private int codPostal;
-	private Date fechaCarnetConducir;
+	private LocalDate fechaCarnetConducir;
 	private int digitosTC;
 	private int añoTC;
 	private int mesTC;
@@ -21,6 +22,24 @@ public class Cliente {
 	
 	private AlquilerVehiculos alquilerVehiculos;
 	private Collection<Reserva> reservas;
+	
+	
+	public Cliente(String id, String nombreyApellidos, String direccion, String poblacion, int codPostal,
+			LocalDate fechaCarnetConducir, int digitosTC, int mesTC, int añoTC, int cvcTC, String tipoTC) {
+		super();
+		this.id = id;
+		this.nombreyApellidos = nombreyApellidos;
+		this.direccion = direccion;
+		this.poblacion = poblacion;
+		this.codPostal = codPostal;
+		this.fechaCarnetConducir = fechaCarnetConducir;
+		this.digitosTC = digitosTC;
+		this.mesTC = mesTC;
+		this.añoTC = añoTC;
+		this.cvcTC = cvcTC;
+		this.tipoTC = tipoTC;
+	}
+
 	
 	public Reserva consultar_Reserva(String id){
 		for(Reserva reserva: reservas)
@@ -69,11 +88,11 @@ public class Cliente {
 		this.codPostal = codPostal;
 	}
 
-	public Date getFechaCarnetConducir() {
+	public LocalDate getFechaCarnetConducir() {
 		return fechaCarnetConducir;
 	}
 
-	public void setFechaCarnetConducir(Date fechaCarnetConducir) {
+	public void setFechaCarnetConducir(LocalDate fechaCarnetConducir) {
 		this.fechaCarnetConducir = fechaCarnetConducir;
 	}
 
@@ -132,6 +151,10 @@ public class Cliente {
 	public void setReservas(Collection<Reserva> reservas) {
 		this.reservas = reservas;
 	}
-	
-
+	public void setId(String id){
+		this.id = id;
+	}
+	public String getId(){
+		return id;
+	}
 }

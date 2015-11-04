@@ -4,7 +4,11 @@ import java.util.Collection;
 
 public class Sucursal {
 	
+	
+
 	//ID
+	private String id;
+	
 	private String direccion;
 	
 	private AlquilerVehiculos alquilerVehiculos;
@@ -12,6 +16,12 @@ public class Sucursal {
 	private Collection<Empleado> empleados;
 	private Collection<Reserva> reservasRecogida;
 	private Collection<Reserva> reservasDevolucion;
+	
+	public Sucursal(String id, String direccion) {
+		super();
+		this.id = id;
+		this.direccion = direccion;
+	}
 	
 	public Coche consultar_Coche(String id){
 		for(Coche coche: coches)
@@ -79,6 +89,14 @@ public class Sucursal {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public AlquilerVehiculos getAlquilerVehiculos() {

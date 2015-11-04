@@ -1,14 +1,15 @@
 package logica;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reserva {
+	
 	
 	//ID
 	private String id;
 	
-	private Date fechaRecogida;
-	private Date fechaDevolucion;
+	private LocalDate fechaRecogida;
+	private LocalDate fechaDevolucion;
 	private String modalidadAlquiler;
 	
 	private Entrega entrega;
@@ -17,16 +18,30 @@ public class Reserva {
 	private Sucursal sucursalRecogida;
 	private Cliente cliente;
 	private AlquilerVehiculos alquilerVehiculos;
-	public Date getFechaRecogida() {
+	
+	public Reserva(String id, LocalDate fechaRecogida, LocalDate fechaDevolucion, String modalidadAlquiler, Cliente cliente,
+			Categoria categoria, Sucursal sucursalRecogida, Sucursal sucursalDevolucion) {
+		super();
+		this.id = id;
+		this.fechaRecogida = fechaRecogida;
+		this.fechaDevolucion = fechaDevolucion;
+		this.modalidadAlquiler = modalidadAlquiler;
+		this.cliente = cliente;
+		this.categoria = categoria;
+		this.sucursalRecogida = sucursalRecogida;
+		this.sucursalDevolucion = sucursalDevolucion;
+	}
+	
+	public LocalDate getFechaRecogida() {
 		return fechaRecogida;
 	}
-	public void setFechaRecogida(Date fechaRecogida) {
+	public void setFechaRecogida(LocalDate fechaRecogida) {
 		this.fechaRecogida = fechaRecogida;
 	}
-	public Date getFechaDevolucion() {
+	public LocalDate getFechaDevolucion() {
 		return fechaDevolucion;
 	}
-	public void setFechaDevolucion(Date fechaDevolucion) {
+	public void setFechaDevolucion(LocalDate fechaDevolucion) {
 		this.fechaDevolucion = fechaDevolucion;
 	}
 	public String getModalidadAlquiler() {
@@ -70,5 +85,11 @@ public class Reserva {
 	}
 	public void setAlquilerVehiculos(AlquilerVehiculos alquilerVehiculos) {
 		this.alquilerVehiculos = alquilerVehiculos;
+	}
+	public void setId(String id){
+		this.id = id;
+	}
+	public String getId(){
+		return id;
 	}
 }

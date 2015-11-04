@@ -1,0 +1,18 @@
+package tests;
+
+import logica.AlquilerVehiculos;
+import logica.Cliente;
+import logica.Reserva;
+
+public class TestCapaLogica {
+
+	private AlquilerVehiculos alquilerVehiculos;
+	
+	public static void main(String[] args) {
+		Cliente cli1 = new Cliente("11111111A", "Pepito Grillo", "Hispanidad, 13", "Aldaia", 46960, 12/02/1970, 12345678, 7, 2017, 123, "Visa");
+		Reserva res1 = new Reserva("1", 12/05/2016, 15/05/2016, "1", cli1, "cat1", "suc1", "suc1");
+		
+
+	}
+
+}

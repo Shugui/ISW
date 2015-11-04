@@ -4,6 +4,7 @@ import java.util.Collection;
 
 public class Categoria {
 	
+
 	//ID
 	private String id;
 	
@@ -18,6 +19,18 @@ public class Categoria {
 	private Collection<Coche> coches;
 	private Collection<Reserva> reservas;
 	
+	
+	public Categoria(String id, float precioModLimitada, float precioModKms, float precioKmModKms,
+			float precioSeguroTRiesgo, float precioSeguroterceros) {
+		super();
+		this.id = id;
+		this.precioModLimitada = precioModLimitada;
+		this.precioModKms = precioModKms;
+		this.precioKmModKms = precioKmModKms;
+		this.precioSeguroTRiesgo = precioSeguroTRiesgo;
+		this.precioSeguroterceros = precioSeguroterceros;
+	}
+
 	public Coche consultar_Coche(String id){
 		for(Coche coche: coches)
 			if(coche.equals(id))
@@ -119,5 +132,10 @@ public class Categoria {
 	public void setReservas(Collection<Reserva> reservas) {
 		this.reservas = reservas;
 	}
-	
+	public String getId(){
+		return id;
+	}
+	public void setId(String id){
+		this.id=id;
+	}
 }

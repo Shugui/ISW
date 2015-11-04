@@ -1,6 +1,8 @@
 package logica;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class AlquilerVehiculos {
 	private Collection<Sucursal> sucursales;
@@ -8,10 +10,17 @@ public class AlquilerVehiculos {
 	private Collection<Reserva> reservas;
 	private Collection<Cliente> clientes;
 	
+	public AlquilerVehiculos(){
+		this.categorias = new ArrayList<Categoria>();
+		this.sucursales = new ArrayList<Sucursal>();
+		this.reservas = new ArrayList<Reserva>();
+		this.clientes = new ArrayList<Cliente>();
+		cargarSistema();
+	}
 	
 	public Sucursal consultar_Sucursal(String id){
 		for(Sucursal sucursal: sucursales)
-			if(sucursal.equals(id))
+			if(sucursal.getId().equals(id))
 				return sucursal;
 		return null;
 	}
@@ -26,7 +35,7 @@ public class AlquilerVehiculos {
 	
 	public Categoria consultar_Categoria(String id){
 		for(Categoria categoria: categorias)
-			if(categoria.equals(id))
+			if(categoria.getId().equals(id))
 				return categoria;
 		return null;
 	}
@@ -41,7 +50,7 @@ public class AlquilerVehiculos {
 	
 	public Reserva consultar_Reserva(String id){
 		for(Reserva reserva: reservas)
-			if(reserva.equals(id))
+			if(reserva.getId().equals(id))
 				return reserva;
 		return null;
 	}
@@ -56,7 +65,7 @@ public class AlquilerVehiculos {
 
 	public Cliente consultar_Cliente(String id){
 		for(Cliente cliente: clientes)
-			if(cliente.equals(id))
+			if(cliente.getId().equals(id))
 				return cliente;
 		return null;
 	}
@@ -99,6 +108,40 @@ public class AlquilerVehiculos {
 
 	public void setClientes(Collection<Cliente> clientes) {
 		this.clientes = clientes;
+	}
+	
+	
+	
+	private void cargarSistema(){
+		Sucursal suc1 = new Sucursal("1","Camino de Vera s/n" );
+		Sucursal suc2 = new Sucursal("2","Archiduque Carlos, 3" );
+		
+		this.añadir_Sucursal(suc2);
+		this.añadir_Sucursal(suc1);
+		
+		Categoria cat1 = new Categoria("sedán", (float)45, (float)23, (float)0.75, (float)50.25, (float)43.23);
+		Categoria cat2 = new Categoria("economy", (float)48, (float)27, (float)0.85, (float)75.25, (float)55.23);
+		cat2.setCategoria(cat1);
+		
+		categorias.add(cat1);
+		categorias.add(cat2);
+		
+		
+		
+	}
+	
+	public void realizarReserva(Reserva reserva){
+		Cliente cliente = reserva.getCliente();
+		Cliente busqueda =  consultar_Cliente(cliente.getId());
+		if (busqueda != null){ 							//Cliente ya registrado
+			this.añadir_Reserva(reserva);
+			busqueda.añadir_Reserva(reserva);
+		}else{											//No hay registro del cliente
+			this.añadir_Cliente(cliente);
+			this.añadir_Reserva(reserva);
+			cliente.añadir_Reserva(reserva);
+						
+		}
 	}
 	
 

@@ -1,14 +1,14 @@
 package logica;
 
 import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Entrega {
 	
 	//id
 	private String id;
 
-	private Date fecha;
+	private LocalDate fecha;
 	private String tipoSeguro;
 	private float kms;
 	private float combustible;
@@ -35,11 +35,11 @@ public class Entrega {
 		return daños.remove(consultar_Daños(id));
 	}
 
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 
