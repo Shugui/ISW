@@ -1,6 +1,5 @@
 package logica;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.time.LocalDate;
 
@@ -39,13 +38,12 @@ public class Cliente {
 		this.añoTC = añoTC;
 		this.cvcTC = cvcTC;
 		this.tipoTC = tipoTC;
-		this.reservas = new ArrayList<Reserva>();
 	}
 
 	
 	public Reserva consultar_Reserva(String id){
 		for(Reserva reserva: reservas)
-			if(reserva.getId().equals(id))
+			if(reserva.equals(id))
 				return reserva;
 		return null;
 	}

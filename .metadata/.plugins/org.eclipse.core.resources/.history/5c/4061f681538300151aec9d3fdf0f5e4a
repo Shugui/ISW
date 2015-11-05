@@ -132,23 +132,19 @@ public class AlquilerVehiculos {
 	
 	public void realizarReserva(Reserva reserva){
 		Cliente cliente = reserva.getCliente();
-		Cliente busqueda =  this.consultar_Cliente(cliente.getId());
-		
-		Sucursal sucursalDevoluvionReserva = reserva.getSucursalDevolucion();
-		Sucursal sucursalRecogidaReserva = reserva.getSucursalRecogida();
-		Sucursal sucursalDevolucion = this.consultar_Sucursal(sucursalDevoluvionReserva.getId());
-		Sucursal sucursalRecogida = this.consultar_Sucursal(sucursalRecogidaReserva.getId());
-		if(sucursalDevolucion != null && sucursalRecogida != null){
-			if (busqueda != null){ 							//Cliente ya registrado
-				this.añadir_Reserva(reserva);
-				busqueda.añadir_Reserva(reserva);
-			}else{											//No hay registro del cliente
-				this.añadir_Cliente(cliente);
-				this.añadir_Reserva(reserva);
-				cliente.añadir_Reserva(reserva);						
-			}
-			sucursalDevolucion.añadir_ReservaDevolucion(reserva);
+		Sucursal sucursalDevoluvion = reserva.getSucursalDevolucion();
+		Sucursal sucursalRecogida = reserva.getSucursalRecogida();
+		Cliente busqueda =  consultar_Cliente(cliente.getId());
+		if (busqueda != null){ 							//Cliente ya registrado
+			this.añadir_Reserva(reserva);
+			busqueda.añadir_Reserva(reserva);
+			sucursalDevoluvion.añadir_ReservaDevolucion(reserva);
 			sucursalRecogida.añadir_ReservaRecogida(reserva);
+		}else{											//No hay registro del cliente
+			this.añadir_Cliente(cliente);
+			this.añadir_Reserva(reserva);
+			cliente.añadir_Reserva(reserva);
+						
 		}
 	}
 	

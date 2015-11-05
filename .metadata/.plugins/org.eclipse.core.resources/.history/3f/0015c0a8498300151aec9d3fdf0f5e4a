@@ -3,24 +3,26 @@ package logica;
 import java.util.Collection;
 import java.time.LocalDate;
 
-public class Devolucion {
-
-	//ID
-	private String id;
+public class Entrega {
 	
+	//id
+	private String id;
+
 	private LocalDate fecha;
-	private float totalACobrar;
-	private float cobrado;
+	private String tipoSeguro;
 	private float kms;
 	private float combustible;
 	
+	private Coche coche;
 	private Empleado empleado;
-	private Entrega entrega;
+	private Devolucion devolucion;
+	private Reserva reserva;
 	private Collection<Daño> daños;
 	
-	public Daño consultar_Daño(String id){
+	
+	public Daño consultar_Daños(String id){
 		for(Daño daño: daños)
-			if(daño.getId().equals(id))
+			if(daño.equals(id))
 				return daño;
 		return null;
 	}
@@ -30,7 +32,7 @@ public class Devolucion {
 	}
 	
 	public boolean eliminar_Daño(String id){
-		return daños.remove(consultar_Daño(id));
+		return daños.remove(consultar_Daños(id));
 	}
 
 	public LocalDate getFecha() {
@@ -41,20 +43,12 @@ public class Devolucion {
 		this.fecha = fecha;
 	}
 
-	public float getTotalACobrar() {
-		return totalACobrar;
+	public String getTipoSeguro() {
+		return tipoSeguro;
 	}
 
-	public void setTotalACobrar(float totalACobrar) {
-		this.totalACobrar = totalACobrar;
-	}
-
-	public float getCobrado() {
-		return cobrado;
-	}
-
-	public void setCobrado(float cobrado) {
-		this.cobrado = cobrado;
+	public void setTipoSeguro(String tipoSeguro) {
+		this.tipoSeguro = tipoSeguro;
 	}
 
 	public float getKms() {
@@ -73,6 +67,14 @@ public class Devolucion {
 		this.combustible = combustible;
 	}
 
+	public Coche getCoche() {
+		return coche;
+	}
+
+	public void setCoche(Coche coche) {
+		this.coche = coche;
+	}
+
 	public Empleado getEmpleado() {
 		return empleado;
 	}
@@ -81,12 +83,20 @@ public class Devolucion {
 		this.empleado = empleado;
 	}
 
-	public Entrega getEntrega() {
-		return entrega;
+	public Devolucion getDevolucion() {
+		return devolucion;
 	}
 
-	public void setEntrega(Entrega entrega) {
-		this.entrega = entrega;
+	public void setDevolucion(Devolucion devolucion) {
+		this.devolucion = devolucion;
+	}
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
 	}
 
 	public Collection<Daño> getDaños() {

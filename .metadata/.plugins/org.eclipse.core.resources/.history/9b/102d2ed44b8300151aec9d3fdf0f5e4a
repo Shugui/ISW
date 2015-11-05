@@ -1,6 +1,5 @@
 package logica;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Sucursal {
@@ -22,8 +21,6 @@ public class Sucursal {
 		super();
 		this.id = id;
 		this.direccion = direccion;
-		this.reservasDevolucion = new ArrayList<Reserva>();
-		this.reservasRecogida = new ArrayList<Reserva>();
 	}
 	
 	public Coche consultar_Coche(String id){

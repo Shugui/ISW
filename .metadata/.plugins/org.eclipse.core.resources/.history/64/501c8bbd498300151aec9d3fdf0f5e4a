@@ -1,6 +1,5 @@
 package logica;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Sucursal {
@@ -22,13 +21,11 @@ public class Sucursal {
 		super();
 		this.id = id;
 		this.direccion = direccion;
-		this.reservasDevolucion = new ArrayList<Reserva>();
-		this.reservasRecogida = new ArrayList<Reserva>();
 	}
 	
 	public Coche consultar_Coche(String id){
 		for(Coche coche: coches)
-			if(coche.getMatricula().equals(id))
+			if(coche.equals(id))
 				return coche;
 		return null;
 	}
@@ -43,7 +40,7 @@ public class Sucursal {
 	
 	public Empleado consultar_Empleado(String id){
 		for(Empleado empleado: empleados)
-			if(empleado.getId().equals(id))
+			if(empleado.equals(id))
 				return empleado;
 		return null;
 	}
@@ -58,7 +55,7 @@ public class Sucursal {
 	
 	public Reserva consultar_ReservaRecogida(String id){
 		for(Reserva reserva: reservasRecogida)
-			if(reserva.getId().equals(id))
+			if(reserva.equals(id))
 				return reserva;
 		return null;
 	}
@@ -73,7 +70,7 @@ public class Sucursal {
 	
 	public Reserva consultar_ReservaDevolucion(String id){
 		for(Reserva reserva: reservasDevolucion)
-			if(reserva.getId().equals(id))
+			if(reserva.equals(id))
 				return reserva;
 		return null;
 	}

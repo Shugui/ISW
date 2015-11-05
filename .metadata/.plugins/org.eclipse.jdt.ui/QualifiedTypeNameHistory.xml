@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="logica.Reserva"/>
+<fullyQualifiedTypeName name="logica.Cliente"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="logica.AlquilerVehiculos"/>
+<fullyQualifiedTypeName name="logica.Categoria"/>
+<fullyQualifiedTypeName name="logica.Sucursal"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

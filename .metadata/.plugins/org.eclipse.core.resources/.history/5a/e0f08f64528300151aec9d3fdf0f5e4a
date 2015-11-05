@@ -1,7 +1,6 @@
 package tests;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import logica.AlquilerVehiculos;
@@ -18,22 +17,19 @@ public class TestCapaLogica {
 		alquilerVehiculos = new AlquilerVehiculos();
 		Cliente cli1 = new Cliente("11111111A", "Pepito Grillo", "Hispanidad, 13", "Aldaia", 46960, LocalDate.of(1970, 02, 12), 12345678, 7, 2017, 123, "Visa");
 		Cliente cli2 = new Cliente("22222222B","David Bisbal", "Valencia , 23","Massamagrell",46130,LocalDate.of(1968, 07, 12), 12348765,10,2024,432,"American Express");
-		Reserva res1 = new Reserva("1",LocalDate.of(2016, 05, 12), LocalDate.of(2016, 05, 15), "1", cli1, alquilerVehiculos.consultar_Categoria("cat1"), alquilerVehiculos.consultar_Sucursal("1"),alquilerVehiculos.consultar_Sucursal("1"));
-		Reserva res2 = new Reserva("2",LocalDate.of(2016, 10, 13), LocalDate.of(2016, 10, 21), "2", cli2, alquilerVehiculos.consultar_Categoria("cat2"), alquilerVehiculos.consultar_Sucursal("1"),alquilerVehiculos.consultar_Sucursal("2"));
+		Reserva res1 = new Reserva("1",LocalDate.of(2016, 05, 12), LocalDate.of(2016, 05, 15), "1", cli1, alquilerVehiculos.consultar_Categoria("cat1"), alquilerVehiculos.consultar_Sucursal("suc1"),alquilerVehiculos.consultar_Sucursal("suc1"));
+		Reserva res2 = new Reserva("2",LocalDate.of(2016, 10, 13), LocalDate.of(2016, 10, 21), "2", cli2, alquilerVehiculos.consultar_Categoria("cat2"), alquilerVehiculos.consultar_Sucursal("suc1"),alquilerVehiculos.consultar_Sucursal("suc2"));
 		alquilerVehiculos.realizarReserva(res2);
 		alquilerVehiculos.realizarReserva(res1);
 		
 		
 		System.out.printf("Las reservas de suc1 son: \n");
 		System.out.printf("Entregas: \n");
-		Collection<Reserva> reservas = new ArrayList<Reserva>();
-		reservas = alquilerVehiculos.consultar_Sucursal("1").getReservasRecogida();
-		for(Reserva entrega: reservas){
+		for(Reserva entrega: alquilerVehiculos.consultar_Sucursal("1").getReservasRecogida()){
 			System.out.println(entrega.getId() + " --- " + entrega.getFechaRecogida()+ "\n");
 		}
 		System.out.printf("Devoluciones: \n");
-		Collection<Reserva> devoluciones =  alquilerVehiculos.consultar_Sucursal("1").getReservasDevolucion();
-		for(Reserva devolucion: devoluciones ){
+		for(Reserva devolucion: alquilerVehiculos.consultar_Sucursal("1").getReservasDevolucion()){
 			System.out.println(devolucion.getId() + " --- " + devolucion.getFechaDevolucion()+ "\n");
 		}
 		

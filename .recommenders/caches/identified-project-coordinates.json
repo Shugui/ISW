@@ -1,1 +1,1 @@
-[[{"location":"/usr/lib/jvm/java-7-openjdk-i386","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.7"}},"jre:jre:1.7.0"]]
+[[{"location":"/opt/jdk1.8.0_65/jre","type":"JRE","hints":{}},"jre:jre:1.8.0"],[{"location":"/root/Documentos/ISW/AlquilerVehiculos","type":"PROJECT","hints":{"PROJECT_NAME":"AlquilerVehiculos"}},"ABSENT"]]

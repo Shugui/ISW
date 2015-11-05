@@ -20,7 +20,7 @@ public class Devolucion {
 	
 	public Daño consultar_Daño(String id){
 		for(Daño daño: daños)
-			if(daño.getId().equals(id))
+			if(daño.equals(id))
 				return daño;
 		return null;
 	}

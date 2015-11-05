@@ -22,7 +22,7 @@ public class Entrega {
 	
 	public Daño consultar_Daños(String id){
 		for(Daño daño: daños)
-			if(daño.equals(id))
+			if(daño.getId().equals(id))
 				return daño;
 		return null;
 	}

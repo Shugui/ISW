@@ -1,6 +1,5 @@
 package logica;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Categoria {
@@ -30,13 +29,11 @@ public class Categoria {
 		this.precioKmModKms = precioKmModKms;
 		this.precioSeguroTRiesgo = precioSeguroTRiesgo;
 		this.precioSeguroterceros = precioSeguroterceros;
-		this.reservas = new ArrayList<Reserva>();
-		this.coches = new ArrayList<Coche>();
 	}
 
 	public Coche consultar_Coche(String id){
 		for(Coche coche: coches)
-			if(coche.getMatricula().equals(id))
+			if(coche.equals(id))
 				return coche;
 		return null;
 	}
@@ -51,7 +48,7 @@ public class Categoria {
 	
 	public Reserva consultar_Reserva(String id){
 		for(Reserva reserva: reservas)
-			if(reserva.getId().equals(id))
+			if(reserva.equals(id))
 				return reserva;
 		return null;
 	}

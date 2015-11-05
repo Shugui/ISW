@@ -15,7 +15,7 @@ public class Empleado {
 	
 	public Entrega consultar_Entrega(String id){
 		for(Entrega entrega: entregas)
-			if(entrega.equals(id))
+			if(entrega.getId().equals(id))
 				return entrega;
 		return null;
 	}
@@ -30,7 +30,7 @@ public class Empleado {
 	
 	public Devolucion consultar_Devolucion(String id){
 		for(Devolucion devolucion: devoluciones)
-			if(devoluciones.equals(id))
+			if(devolucion.getId().equals(id))
 				return devolucion;
 		return null;
 	}

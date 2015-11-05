@@ -14,7 +14,7 @@ public class Coche {
 	
 	public Entrega consultar_Entrega(String id){
 		for(Entrega entrega: entregas)
-			if(entrega.getId().equals(id))
+			if(entrega.equals(id))
 				return entrega;
 		return null;
 	}

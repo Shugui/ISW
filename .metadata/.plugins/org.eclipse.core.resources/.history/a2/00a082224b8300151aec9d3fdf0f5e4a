@@ -1,6 +1,5 @@
 package logica;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.time.LocalDate;
 
@@ -39,7 +38,6 @@ public class Cliente {
 		this.añoTC = añoTC;
 		this.cvcTC = cvcTC;
 		this.tipoTC = tipoTC;
-		this.reservas = new ArrayList<Reserva>();
 	}
 
 	
