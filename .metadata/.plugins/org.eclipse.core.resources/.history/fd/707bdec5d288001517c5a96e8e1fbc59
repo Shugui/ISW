@@ -16,7 +16,7 @@ public class AlquilerVehiculos {
 		this.sucursales = new ArrayList<Sucursal>();
 		this.reservas = new ArrayList<Reserva>();
 		this.clientes = new ArrayList<Cliente>();
-		cargaSistema();
+		cargarSistema();
 	}
 	
 	public Sucursal consultar_Sucursal(String id){
@@ -113,7 +113,7 @@ public class AlquilerVehiculos {
 	
 	
 	
-	private void cargaSistema(){
+	private void cargarSistema(){
 		Sucursal suc1 = new Sucursal("1","Camino de Vera s/n" );
 		Sucursal suc2 = new Sucursal("2","Archiduque Carlos, 3" );
 		
@@ -165,47 +165,40 @@ public class AlquilerVehiculos {
 	
 	public void crearReserva(String id){
 		Cliente cliente = consultar_Cliente(id);
-		if(cliente == null){
-		//creo un nuevo cliente
-		}
-		LocalDate fechaRecogida = solicitarFechaRecogida();
-		LocalDate fechaDevolucion = solicitarFechaDevolucion();
-		Sucursal sucursalRecogida = solicitarSucursalRecogida();
-		Sucursal sucursalDevolucion = solicitarSucursalDevolucion();
-		Categoria categoria = solicitarCategoria();
-		String modalidad = solicitarModalidad();
-		
-		Reserva reserva = new Reserva(id, fechaRecogida, fechaDevolucion, modalidad, cliente, categoria, sucursalRecogida, sucursalDevolucion);
-		realizarReserva(reserva);
+		if(cliente != null){
+			LocalDate fechaRecogida = solicitarFechaRecogida();
+			LocalDate fechaDevolucion = solicitarFechaDevolucion();
+			Sucursal sucursalRecogida = solicitarSucursalRecogida();
+			Sucursal sucursalDevolucion = solicitarSucursalDevolucion();
+			Categoria categoria = solicitarCategoria();
+			String modalidad = solicitarModalidad();
 			
+			Reserva reserva = new Reserva(id, fechaRecogida, fechaDevolucion, modalidad, cliente, categoria, sucursalRecogida, sucursalDevolucion);
+			realizarReserva(reserva);
+		}else{
+			
+		}
 	}
-
 	
 	public LocalDate solicitarFechaRecogida(){
-		LocalDate fechaRecogida = null;
-		return fechaRecogida;
+		
 	}
 	
 	public LocalDate solicitarFechaDevolucion(){
-		LocalDate fechaDevolucion = null;
-		return fechaDevolucion;
+		
 	}
 	
 	public Sucursal solicitarSucursalDevolucion(){
-		Sucursal sucursalDevolucion = null;
-		return sucursalDevolucion;
+		
 	}
 	public Sucursal solicitarSucursalRecogida(){
-		Sucursal sucursalRecogida = null;
-		return sucursalRecogida;
+		
 	}
 	public Categoria solicitarCategoria(){
-		Categoria categoria = null;
-		return categoria;
+		
 	}
 	public String solicitarModalidad(){
-		String modalidad = null;
-		return modalidad;
+		
 	}
 
 	public void crearCliente(String nombre, String direccion, String poblacion, int cp, LocalDate fechaCarne, int digitosTC, int mesTC, int añoTC, int cvcTC, String tipoTC ){

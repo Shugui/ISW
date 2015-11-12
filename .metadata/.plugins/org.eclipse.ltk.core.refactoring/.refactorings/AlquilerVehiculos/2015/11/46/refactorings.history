@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;logica.AlquilerVehiculos.cargarSistema()&apos; to &apos;cargaSistema&apos;&#x0A;- Original project: &apos;AlquilerVehiculos&apos;&#x0A;- Original element: &apos;logica.AlquilerVehiculos.cargarSistema()&apos;&#x0A;- Renamed element: &apos;logica.AlquilerVehiculos.cargaSistema()&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;cargarSistema&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;logica{AlquilerVehiculos.java[AlquilerVehiculos~cargarSistema" name="cargaSistema" references="true" stamp="1447288388599" version="1.0"/>
+</session>

@@ -16,7 +16,7 @@ public class AlquilerVehiculos {
 		this.sucursales = new ArrayList<Sucursal>();
 		this.reservas = new ArrayList<Reserva>();
 		this.clientes = new ArrayList<Cliente>();
-		cargaSistema();
+		cargarSistema();
 	}
 	
 	public Sucursal consultar_Sucursal(String id){
@@ -113,7 +113,7 @@ public class AlquilerVehiculos {
 	
 	
 	
-	private void cargaSistema(){
+	private void cargarSistema(){
 		Sucursal suc1 = new Sucursal("1","Camino de Vera s/n" );
 		Sucursal suc2 = new Sucursal("2","Archiduque Carlos, 3" );
 		
@@ -178,7 +178,7 @@ public class AlquilerVehiculos {
 		Reserva reserva = new Reserva(id, fechaRecogida, fechaDevolucion, modalidad, cliente, categoria, sucursalRecogida, sucursalDevolucion);
 		realizarReserva(reserva);
 			
-	}
+		}
 
 	
 	public LocalDate solicitarFechaRecogida(){
